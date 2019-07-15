@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: music-rec-d-search
+  labels:
+    app: music-rec-search
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: music-rec-search
+  template:
+    metadata:
+      labels:
+        app: music-rec-search
+    spec:
+      containers:
+      - name: search
+        image: soa/music-rec-search:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 1111

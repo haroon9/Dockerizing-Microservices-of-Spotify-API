@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: music-rec-d-images
+  labels:
+    app: music-rec-images
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: music-rec-images
+  template:
+    metadata:
+      labels:
+        app: music-rec-images
+    spec:
+      containers:
+      - name: images
+        image: soa/music-rec-images:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080

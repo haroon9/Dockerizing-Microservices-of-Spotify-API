@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: music-rec-d-charts
+  labels:
+    app: music-rec-charts
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: music-rec-charts
+  template:
+    metadata:
+      labels:
+        app: music-rec-charts
+    spec:
+      containers:
+      - name: charts
+        image: soa/music-rec-charts:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 1111

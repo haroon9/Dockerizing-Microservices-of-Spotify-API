@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: music-rec-d-frontend
+  labels:
+    app: music-rec-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: music-rec-frontend
+  template:
+    metadata:
+      labels:
+        app: music-rec-frontend
+    spec:
+      containers:
+      - name: web
+        image: soa/music-rec-web:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
