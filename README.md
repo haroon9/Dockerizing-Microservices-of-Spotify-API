@@ -1,4 +1,4 @@
-# SOA Assignment 2 - Service Orchestration
+# Service Orchestration
 
 ## Overview
 
